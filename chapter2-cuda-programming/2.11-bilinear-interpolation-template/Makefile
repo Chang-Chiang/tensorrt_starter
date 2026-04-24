@@ -28,12 +28,12 @@ CUDAFLAGS     :=  --shared -Xcompiler -fPIC
 
 INCS          :=  -I $(CUDA_DIR)/include \
                   -I $(SRC_PATH) \
-									-I $(OPENCV_INSTALL_DIR) \
-									-I $(INC_PATH)
+				  -I $(OPENCV_INSTALL_DIR) \
+				  -I $(INC_PATH)
 
 LIBS          :=  -L "$(CUDA_DIR)/lib64" \
                   -lcudart -lcublas -lcudnn \
-									`pkg-config --libs opencv`
+				  `pkg-config --libs opencv4`
 
 ifeq ($(DEBUG),1)
 CUDAFLAGS     +=  -g -O0 -G
